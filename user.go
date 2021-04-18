@@ -1,3 +1,5 @@
+// +build !windows
+
 package userutil
 
 import (
@@ -51,7 +53,7 @@ Set all=true to return all groups
 
 Set all=false to return groups without _ and com.apple prefix
 */
-func (u *User) Groups(all bool) ([]Group, error) {
+func (u User) Groups(all bool) ([]Group, error) {
 	return u.GroupsWithContext(context.Background(), all)
 }
 
@@ -62,7 +64,7 @@ Set all=true to return all groups
 
 Set all=false to return groups without _ and com.apple prefix
 */
-func (u *User) GroupsWithContext(ctx context.Context, all bool) ([]Group, error) {
+func (u User) GroupsWithContext(ctx context.Context, all bool) ([]Group, error) {
 	return u.membership(ctx, all)
 }
 

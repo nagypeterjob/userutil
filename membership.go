@@ -8,7 +8,7 @@ import (
 	"os/exec"
 )
 
-func (u *User) membership(ctx context.Context, all bool) ([]Group, error) {
+func (u User) membership(ctx context.Context, all bool) ([]Group, error) {
 	stdout, err := exec.CommandContext(ctx, "id", u.Username).Output()
 	if err != nil {
 		return nil, err

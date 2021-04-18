@@ -15,7 +15,7 @@ test:
 	go test -count=1 -race -cover -v $(shell go list ./... | grep -v -e /vendor/)
 
 build:
-	GOOS=$(target) go build -o "bin/userutil" $*
+	GOOS=$(target) go build -o "bin/userutil" 
 
 lint:
 	golint -set_exit_status `go list ./...`
